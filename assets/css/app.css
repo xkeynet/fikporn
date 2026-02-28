@@ -1,1 +1,469 @@
+/* =========================================================
+   CSS: Root / Variables
+   ======================================================== */
+:root {
+  --bg:#000;
+  --fg:#fff;
+  --muted:#888;
+  --logo:60px;
+  --headline:clamp(28px, 6.5vw, 56px);
+  --twb:#00D9FF;
+  --safeSide:16px;
+
+  /* === BOTTOM VIDEO (MATCH TWINCHER) === */
+  --navPadX:12px;
+  --navIconBox:48px;
+  --navH:78px;
+  --iconSide:32px;
+  --iconBottom:28px;
+
+  --glass: rgba(255,255,255,.06);
+  --glassStroke: rgba(255,255,255,.12);
+  --gateMuted:#A5A5A5;
+  --gateBlue:#00E5E5;
+  --gateWhite:#FFFFFF;
+  --cardMax:520px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display:grid; grid-template-rows:auto 1fr auto; min-height:100vh;
+  position:relative; overflow:hidden;
+}
+
+/* =========================================================
+   CSS: Video Stack (DO NOT TOUCH)
+   ========================================================= */
+/* === VIDEO STACK (TWINCHER STYLE) === */
+#video-stack{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
+  background:#000;
+}
+.twincher-layer{
+  position:absolute;
+  inset:0;
+  transform:translateY(0px);
+  will-change:transform;
+  background:#000;
+}
+.twincher-layer video,
+.twincher-layer img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#000;
+  display:none;
+}
+.twincher-layer img{
+  opacity:0;
+  transition: opacity 120ms linear;
+  -webkit-user-drag:none;
+  user-select:none;
+}
+
+/* =========================================================
+   CSS: Top UI
+   ========================================================= */
+/* === TOP LEFT LOGO === */
+.top{
+  position:fixed;
+  top:8px;
+  left: 4px;
+  right:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  z-index:3;
+  padding:0;
+}
+.logo{
+  height:var(--logo);
+  width:auto;
+  user-select:none;
+}
+
+/* === TOP RIGHT SEARCH === */
+.search-fix{
+  position:fixed;
+  top:4px;
+  right:6px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:0;
+  color:#fff;
+  cursor:pointer;
+  z-index:3;
+}
+.search-fix .ph{
+  font-size:26px;
+}
+
+/* === TOP CENTER TOGGLE === */
+.top-toggle{
+  position: fixed;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:0;
+  color:#fff;
+  cursor:pointer;
+  z-index:3;
+  -webkit-tap-highlight-color:transparent;
+}
+.top-toggle .ph{
+  font-size:38px;
+  color: rgba(255,255,255,0.8);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.top-toggle.spin .ph{
+  animation: uiArrowSpin 1600ms cubic-bezier(.14,.92,.18,1) forwards;
+}
+
+@keyframes uiArrowSpin{
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(720deg); }
+}
+
+/* === STAGE (EMPTY HERO) === */
+.stage{
+  display:grid; place-items:center;
+  padding:24px var(--safeSide);
+  text-align:center; position:relative; z-index:1;
+  padding-bottom: calc(var(--navH) + 28px);
+}
+
+/* =========================================================
+   CSS: Right Column
+   ========================================================= */
+/* === RIGHT SIDE ACTIONS === */
+.side{
+  position: fixed;
+  right: 6px;
+  top: 60%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ✅ AVATAR (40x40) — overlay above column (does NOT push the column down) */
+.stack.avatar-stack{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -55px; /* 40px avatar + 10px gap */
+  pointer-events: auto;
+}
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  object-fit:cover;
+  display:block;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.side button{
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.side .ph{
+  font-size: var(--iconSide);
+}
+#likeIcon{transition:transform .12s ease,color .12s ease;}
+#likeIcon.pop{transform:scale(1.18);}
+#likeIcon.liked{color:#FF0000;}
+.count {
+  font-size: 11px;
+  color: rgba(255,255,255,0.9);
+  user-select: none;
+  line-height: 1;
+  margin-top: -5px;
+}
+
+/* =========================================================
+   CSS: Bottom Nav
+   ========================================================= */
+/* === BOTTOM NAV (MATCH TWINCHER) === */
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  z-index: 2;
+  background: transparent;
+  padding: 0 var(--navPadX) env(safe-area-inset-bottom);
+  height: calc(var(--navIconBox) + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: var(--navIconBox);
+  height: var(--navIconBox);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.nav i {
+  font-size: var(--iconBottom);
+}
+
+/* =========================================================
+   CSS: Seekbar (LAST STEP)
+   ========================================================= */
+/* === VIDEO SEEK BAR (MATCH TWINCHER) === */
+.seek-wrap{
+  position:absolute;
+  left:var(--navPadX);
+  right:var(--navPadX);
+  bottom: calc(var(--navIconBox) - 9px);
+  top:auto;
+  height:10px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3;
+  pointer-events:auto;
+}
+.seek-pill{
+  width:100%;
+  height:3px;
+  border-radius:999px;
+  background: rgba(255,255,255,.18);
+  position:relative;
+  overflow:hidden;
+  touch-action: pan-y;
+}
+.seek-fill{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:0%;
+  border-radius:999px;
+  background: rgba(255,255,255,.30);
+}
+
+/* =========================================================
+   CSS: (Other) Profile Modal
+   ========================================================= */
+/* === PROFILE MODAL === */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:5}
+.modal-backdrop.show{display:flex}
+.modal{width:min(92vw,560px);background:var(--glass);border:1px solid var(--glassStroke);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:20px}
+.modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 12px}
+.modal-title{margin:0;font-size:18px;font-weight:700;letter-spacing:.02em}
+.modal-close{appearance:none;background:transparent;border:0;color:#fff;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.note{font-size:12px;color:#cbd5e1;opacity:.7;text-align:center;margin-top:6px}
+.btn{appearance:none;border:0;border-radius:999px;padding:12px 18px;font-weight:600;cursor:pointer}
+.btn.secondary{background:rgba(255,255,255,.1);color:#fff}
+.btn.primary{background:rgba(255,255,255,.1);color:#fff}
+
+/* =========================================================
+   CSS: Age Gate
+   ========================================================= */
+/* === AGE GATE OVERLAY === */
+#gateOverlay{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+#gateOverlay.hidden{ display:none; }
+
+.wrap{
+  height:100svh;
+  padding:24px 18px calc(24px + env(safe-area-inset-bottom));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+.card{
+  width:min(var(--cardMax), 100%);
+  height:100%;
+  max-height:calc(100svh - 48px - env(safe-area-inset-bottom));
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  /* keep the whole gate visually centered */
+  justify-content:center;
+}
+.top-g{
+  flex:0 0 auto;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* === AGE ICON (PNG) === */
+.age-badge{
+  width:90px;
+  height:auto;
+  display:block;
+  margin-bottom:20px;
+}
+
+.legalScroll{
+  flex:0 1 auto;
+  width:100%;
+  max-width:44ch;
+
+  /* keep it centered and not pushing everything down */
+  max-height:34svh;
+
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:12px 0;
+  margin:0 auto 18px;
+}
+.legal{
+  font-size:14px;
+  line-height:1.45;
+  color:var(--gateMuted);
+  opacity:0.95;
+  margin:0;
+  text-align:left;
+}
+
+/* === GATE BOTTOM (BUTTON + CONSENT LINKS) === */
+.bottom{
+  flex:0 0 auto;
+  width:100%;
+  padding-top:8px;
+  padding-bottom:4px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* === THE BLUE PILL === */
+.enterBtn{
+  width: fit-content;
+  max-width:280px;
+  min-width:240px;
+  margin:0 auto;
+  display:inline-flex;
+  flex-direction:column;            /* two-line pill */
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+
+  border:2px solid #A5A5A5;
+  border-radius: 0;
+  padding:8px 22px;               /* slightly tighter so it stays "short" */
+  font-weight:800;
+  letter-spacing:0;
+  color:var(--gateWhite);
+  background:transparent;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.enterBtn:active{ transform:scale(0.99); }
+
+.enterTop{
+  font-size:13px;
+  line-height:1;
+  text-transform:none;
+  letter-spacing:0;
+  opacity:0.98;
+}
+.enterBottom{
+  font-size:13px;                  /* a touch smaller than before */
+  line-height:1;
+  text-transform:none;
+  letter-spacing:0.02em;
+  opacity:0.98;
+}
+
+/* === CONSENT TEXT UNDER THE PILL === */
+.consent{
+  width:100%;
+  max-width:44ch;
+  margin-top:18px;
+  font-size:13px;
+  line-height:1.45;
+  color:var(--gateMuted);
+  text-align:center;
+  opacity:0.95;
+}
+.consent a{
+  color:var(--gateMuted);
+  font-weight:800;
+}
+
+/* FIX: right column icon size (Fill/Regular) */
+aside .stack i{
+  font-size: 34px;
+  line-height: 1;
+}
+aside .stack i { 
+  color: rgba(255,255,255,0.8); 
+}
 
