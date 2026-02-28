@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Fik.Porn</title>
+
+  <!-- =========================================================
+       HEAD / SEO / META (LOCK ZONE S2 – 1:1)
+       ========================================================= -->
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Fik.Porn is a free video platform for adults only. Just swipe.">
+  <link rel="canonical" href="https://fik.porn/" />
+
+  <!-- =========================================================
+       OG / Twitter
+       ========================================================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fik.Porn">
+  <meta property="og:title" content="Fik.Porn">
+  <meta property="og:description" content="Fik.Porn is a free video platform for adults only. Just swipe.">
+  <meta property="og:url" content="https://fik.porn/">
+  <meta property="og:image" content="https://fik.porn/assets/swipe-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fik.Porn">
+  <meta name="twitter:description" content="Fik.Porn is a free video platform for adults only. Just swipe.">
+  <meta name="twitter:image" content="https://fik.porn/assets/swipe-og.png">
+  <meta name="twitter:url" content="https://fik.porn/">
+
+  <!-- =========================================================
+       Icons / Analytics
+       ========================================================= -->
+  <meta name="google-site-verification" content="8x53RZUH8MhYK0f3LFtuQu5bOBKhqNUwMOjMUYvX4Rk" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/swipe-16x16.PNG">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/swipe-32x32.PNG">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/swipe-48x48.PNG">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/swipe-180x180.PNG">
+  <meta name="theme-color" content="#000000" />
+
+  <!-- === PHOSPHOR ICONS === -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/thin/style.css" />
+
+  <!-- === GOOGLE ANALYTICS (GA4) === -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXC51GZB80"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DXC51GZB80');
+  </script>
+
+  <!-- =========================================================
+       APP CSS
+       ========================================================= -->
+  <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HTML: Age Gate (LOCK ZONE S1 – 1:1)
+       ========================================================= -->
+  <div id="gateOverlay" aria-modal="true" role="dialog" data-nosnippet>
+    <main class="wrap">
+      <section class="card" id="gate" data-nosnippet>
+        <div class="top-g">
+          <div class="age-system">
+            <img class="age-badge" src="/assets/18-plus-new.png" alt="18+" />
+          </div>
+
+        <div class="legalScroll" aria-label="Legal notice" data-nosnippet>
+          <p class="legal" data-nosnippet>
+            By accessing Fik.Porn, you confirm that you are <strong>18 years of age or older</strong>
+            (or the age of majority in your country) and that you are <strong>legally permitted</strong> to view adult
+            content under the laws of your local jurisdiction.<br><br>
+
+            You acknowledge that Fik.Porn contains <strong>sexually explicit material</strong> intended exclusively
+            for adults. If you are under 18 years of age, or if viewing such material is prohibited in your country,
+            you must leave Fik.Porn immediately.<br><br>
+
+            By entering, you agree that:
+            <br>> You will not allow any person under the age of 18 to access this content.
+            <br>> You access this website voluntarily and at your own risk.
+            <br>> You take full responsibility for complying with all applicable local laws.
+            <br>> You consent to the use of cookies and the processing of certain technical data necessary for the operation of this website.<br><br>
+
+            If you do not agree with these conditions, please leave this website now.
+          </p>
+        </div>
+
+        <div class="bottom">
+          <button class="enterBtn" id="enterBtn" type="button">
+            <span class="enterTop">ENTER</span>
+            <span class="enterBottom">I’m over 18</span>
+          </button>
+
+          <div class="consent" data-nosnippet>
+            By clicking Enter, I agree to the
+            <a href="/legal/terms-and-conditions.html">Terms and Conditions</a>
+            and
+            <a href="/legal/privacy-policy.html">Privacy Policy</a>.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =========================================================
+       HTML: Video Stack (LOCK ZONE S3)
+       ========================================================= -->
+  <div id="video-stack" aria-hidden="true">
+    <div id="layerCurrent" class="twincher-layer">
+      <video id="videoCurrent" playsinline></video>
+      <img id="imgCurrent" alt="" draggable="false" />
+    </div>
+    <div id="layerNext" class="twincher-layer">
+      <video id="videoNext" playsinline></video>
+      <img id="imgNext" alt="" draggable="false" />
+    </div>
+  </div>
+
+  <!-- =========================================================
+       TOP UI
+       ========================================================= -->
+  <div class="top">
+    <img class="logo no-save" src="/assets/swipe-logo.PNG" alt="Fik.Porn" width="60" height="60" draggable="false" />
+  </div>
+<!-- TOP CENTER TOGGLE -->
+  <button id="uiToggle" class="top-toggle spin" aria-label="Toggle UI">
+    <i class="ph ph-caret-down"></i>
+  </button>
+  
+  <button class="search-fix" aria-label="Search">
+    <i class="ph ph-magnifying-glass"></i>
+  </button>
+
+  <main class="stage" aria-label="Hero"></main>
+
+  <!-- =========================================================
+       RIGHT COLUMN (LOCK ZONE S4)
+       ========================================================= -->
+  <aside class="side" aria-label="Actions">
+    <div class="stack avatar-stack">
+      <button id="avatarBtn" aria-label="Avatar">
+        <img class="avatar" src="/assets/profile.jpeg" alt="Avatar" />
+      </button>
+    </div>
+
+    <div class="stack">
+      <button id="likeBtn" aria-label="Like">
+        <i id="likeIcon" class="ph-fill ph-heart"></i>
+      </button>
+      <div class="count">875</div>
+    </div>
+
+    <div class="stack">
+      <button aria-label="Comments">
+        <i class="ph-fill ph-chat-circle-dots"></i>
+      </button>
+      <div class="count">47</div>
+    </div>
+
+    <div class="stack">
+      <button aria-label="Bookmark">
+        <i class="ph-fill ph-bookmark-simple"></i>
+      </button>
+      <div class="count">203</div>
+    </div>
+
+    <div class="stack">
+      <button aria-label="Share">
+        <i class="ph-fill ph-share-fat"></i>
+      </button>
+      <div class="count">112</div>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       PROFILE MODAL
+       ========================================================= -->
+  <div id="profileModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Your profile</h2>
+        <button class="modal-close" id="closeProfile" aria-label="Close">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div style="padding:20px; text-align:center;">
+        <p>Sign in or create your profile to save likes and unlock more.</p>
+        <div class="actions" style="justify-content:center; gap:10px;">
+          <button class="btn secondary">Sign in</button>
+          <button class="btn primary">Create profile</button>
+        </div>
+        <div class="note">Adults only. Simple placeholder — full access flow later.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       BOTTOM NAV (LOCK ZONE S5)
+       ========================================================= -->
+  <nav class="nav" aria-label="Primary">
+    <div class="seek-wrap" id="seekWrap" aria-hidden="true">
+      <div class="seek-pill" id="seekPill">
+        <div class="seek-fill" id="seekFill"></div>
+      </div>
+    </div>
+    <ul>
+      <li><button aria-label="Home"><i class="ph ph-house"></i></button></li>
+      <li><button aria-label="Discover"><i class="ph ph-squares-four"></i></button></li>
+      <li><button aria-label="Add"><i class="ph-bold ph-plus"></i></button></li>
+      <li><button aria-label="Messages"><i class="ph ph-chat-centered-text"></i></button></li>
+      <li><button id="profileBtn" aria-label="Profile"><i class="ph ph-user"></i></button></li>
+    </ul>
+  </nav>
+
+  <!-- =========================================================
+       APP JS
+       ========================================================= -->
+  <script src="/assets/js/app.js" defer></script>
+
+</body>
+</html>
+
 
