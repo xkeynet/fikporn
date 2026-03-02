@@ -272,36 +272,79 @@ body{
 /* =========================================================
    CSS: Seekbar (LAST STEP)
    ========================================================= */
-/* === VIDEO SEEK BAR (MATCH TWINCHER) === */
+/* === VIDEO SEEK BAR (PILL) === */
 .seek-wrap{
   position:absolute;
   left:var(--navPadX);
   right:var(--navPadX);
-  bottom: calc(var(--navIconBox) - 9px);
+  bottom: calc(var(--navIconBox) - 5px);
   top:auto;
-  height:10px;
-  display:none;
-  align-items:center;
+
+  /* huge hitbox */
+  height:36px;
+  display:none;               /* necháváme jako u tebe (showSeek řídí) */
+  align-items:flex-end;
   justify-content:center;
+  padding-bottom:0px;
+
   z-index:3;
   pointer-events:auto;
+
+  /* seek má prioritu */
+  touch-action:none;
 }
+
 .seek-pill{
   width:100%;
   height:3px;
   border-radius:999px;
   background: rgba(255,255,255,.18);
   position:relative;
-  overflow:hidden;
-  touch-action: pan-y;
+  overflow:visible;
+
+  transition: height 140ms ease, background 140ms ease;
 }
+
+.seek-pill.is-active{
+  height:8px;
+  background: rgba(255,255,255,.16);
+}
+
 .seek-fill{
   position:absolute;
   left:0; top:0; bottom:0;
   width:0%;
   border-radius:999px;
-  background: rgba(255,255,255,.30);
+  background: rgba(255,255,255,.34);
 }
+
+/* === TIMER === */
+.seek-time{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom: 44px;
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:.06em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255,255,255,.96);
+  text-shadow: 0 2px 14px rgba(0,0,0,.55);
+
+  opacity:0;
+  transition: opacity 140ms ease;
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+}
+
+.seek-time.is-active{ opacity:1; }
+
+.seek-time .t-cur{ color: rgba(255,255,255,.96); font-weight:700; }
+.seek-time .t-sep{ color: rgba(255,255,255,.60); font-weight:400; font-size:0.82em; letter-spacing:.02em; }
+.seek-time .t-tot{ color: rgba(255,255,255,.60); font-weight:700; }
 
 /* =========================================================
    CSS: (Other) Profile Modal
