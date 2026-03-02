@@ -242,16 +242,6 @@ function queueSeek(clientX) {
     seekToClientX(seekLatestX);
   });
 }
-  function seekToClientX(clientX) {
-    const d = videoCurrent.duration;
-    if (!d || !isFinite(d) || d <= 0) return;
-    const r = seekPill.getBoundingClientRect();
-    const x = Math.max(0, Math.min(r.width, clientX - r.left));
-    const t = (x / r.width) * d;
-    videoCurrent.currentTime = t;
-    const p = Math.max(0, Math.min(1, t / d));
-    seekFill.style.width = (p * 100) + '%';
-  }
 
   function togglePlayPause() {
     const item = PLAYLIST[index];
@@ -514,12 +504,6 @@ function queueSeek(clientX) {
       autoTimer = setTimeout(() => autoAdvance(), 3000);
     }
   }
-  let pillTouching = false;
-  let pillSeeking = false;
-  let pillStartX = 0;
-  let pillStartY = 0;
-  let pillMoved = false;
-  let wasPlayingBeforeSeek = false;
 
   if (seekWrap) {
     seekWrap.addEventListener('touchstart', (e) => {
