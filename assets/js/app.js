@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const seekWrap = document.getElementById('seekWrap');
   const seekPill = document.getElementById('seekPill');
   const seekFill = document.getElementById('seekFill');
+  const seekTime = document.getElementById('seekTime');
 
   // === HARDEN VIDEO ELEMENTS FOR iOS / SMOOTHNESS ===
   [videoCurrent, videoNext].forEach(v => {
@@ -182,6 +183,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function fmtTime(sec) {
+  if (!isFinite(sec) || sec < 0) sec = 0;
+  sec = Math.floor(sec);
+
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+
+  const hh = String(h).padStart(2, '0');
+  const mm = String(m).padStart(2, '0');
+  const ss = String(s).padStart(2, '0');
+
+  return h > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`;
+}
+
+function updateSeekUIFromCurrent() {
+  const d = videoCurrent.duration;
+  if (!d || !isFinite(d) || d <= 0) {
+    if (seekTime) seekTime.innerHTML = `<span class="t-cur">00:00</span><span class="t-sep"> / </span><span class="t-tot">00:00</span>`;
+    return;
+  }
+  const t = Math.max(0, Math.min(d, videoCurrent.currentTime || 0));
+  if (seekTime) seekTime.innerHTML = `<span class="t-cur">${fmtTime(t)}</span><span class="t-sep"> / </span><span class="t-tot">${fmtTime(d)}</span>`;
+}
+
+function setSeekActive(on) {
+  if (seekPill) seekPill.classList.toggle('is-active', !!on);
+  if (seekTime) seekTime.classList.toggle('is-active', !!on);
+  if (on) updateSeekUIFromCurrent();
+}
+
+function seekToClientX(clientX) {
+  const d = videoCurrent.duration;
+  if (!d || !isFinite(d) || d <= 0) return;
+
+  const r = seekPill.getBoundingClientRect();
+  const x = Math.max(0, Math.min(r.width, clientX - r.left));
+  const t = (x / r.width) * d;
+
+  videoCurrent.currentTime = t;
+
+  const p = Math.max(0, Math.min(1, t / d));
+  if (seekFill) seekFill.style.width = (p * 100) + '%';
+
+  if (seekTime) seekTime.innerHTML = `<span class="t-cur">${fmtTime(t)}</span><span class="t-sep"> / </span><span class="t-tot">${fmtTime(d)}</span>`;
+}
+
+// ultra responsive scrubbing
+let seekRaf = 0;
+let seekLatestX = 0;
+
+function queueSeek(clientX) {
+  seekLatestX = clientX;
+  if (seekRaf) return;
+  seekRaf = requestAnimationFrame(() => {
+    seekRaf = 0;
+    seekToClientX(seekLatestX);
+  });
+}
   function seekToClientX(clientX) {
     const d = videoCurrent.duration;
     if (!d || !isFinite(d) || d <= 0) return;
@@ -454,7 +514,101 @@ document.addEventListener('DOMContentLoaded', () => {
       autoTimer = setTimeout(() => autoAdvance(), 3000);
     }
   }
+  let pillTouching = false;
+  let pillSeeking = false;
+  let pillStartX = 0;
+  let pillStartY = 0;
+  let pillMoved = false;
+  let wasPlayingBeforeSeek = false;
 
+  if (seekWrap) {
+    seekWrap.addEventListener('touchstart', (e) => {
+      if (!e.touches || e.touches.length !== 1) return;
+      if (PLAYLIST[index].type !== 'video') return;
+
+      ensureSoundOn(true);
+
+      pillTouching = true;
+      pillSeeking = false;
+      pillMoved = false;
+      pillStartX = e.touches[0].clientX;
+      pillStartY = e.touches[0].clientY;
+
+      setSeekActive(true);
+
+      wasPlayingBeforeSeek = !(videoCurrent.paused || videoCurrent.ended);
+      videoCurrent.pause();
+      stopProg();
+
+      queueSeek(e.touches[0].clientX);
+    }, { passive: false });
+
+    seekWrap.addEventListener('touchmove', (e) => {
+      if (!pillTouching) return;
+      if (!e.touches || e.touches.length !== 1) return;
+      if (PLAYLIST[index].type !== 'video') return;
+
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      const dx = x - pillStartX;
+      const dy2 = y - pillStartY;
+
+      if (!pillSeeking) {
+        if (Math.abs(dx) >= 2 && Math.abs(dx) >= Math.abs(dy2)) pillSeeking = true;
+        else if (Math.abs(dy2) > Math.abs(dx) && Math.abs(dy2) > 6) {
+          pillTouching = false;
+          setSeekActive(false);
+          if (wasPlayingBeforeSeek) tryPlay(videoCurrent);
+          startProg();
+          return;
+        } else return;
+      }
+
+      pillMoved = pillMoved || Math.abs(dx) >= 2;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      queueSeek(x);
+    }, { passive: false });
+
+    seekWrap.addEventListener('touchend', (e) => {
+      pillTouching = false;
+      pillSeeking = false;
+
+      if (!pillMoved && e && e.changedTouches && e.changedTouches[0]) {
+        queueSeek(e.changedTouches[0].clientX);
+      }
+
+      pillMoved = false;
+
+      setSeekActive(false);
+
+      if (wasPlayingBeforeSeek) {
+      tryPlay(videoCurrent);
+      }
+      startProg();
+    }, { passive: false });
+
+    seekWrap.addEventListener('touchcancel', () => {
+      pillTouching = false;
+      pillSeeking = false;
+      pillMoved = false;
+
+      setSeekActive(false);
+
+      if (wasPlayingBeforeSeek) {
+        tryPlay(videoCurrent);
+      }
+      startProg();
+    }, { passive: true });
+
+    seekWrap.addEventListener('click', (e) => {
+      if (PLAYLIST[index].type !== 'video') return;
+      e.preventDefault();
+      seekToClientX(e.clientX);
+    });
+  }
   // =========================================================
   // === Swipe Engine ===
   // =========================================================
