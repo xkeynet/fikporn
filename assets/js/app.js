@@ -973,18 +973,22 @@ function queueSeek(clientX) {
 const likeBtn = document.getElementById('likeBtn');
 const likeIcon = document.getElementById('likeIcon');
 
-let liked = false;
+if (likeBtn && likeIcon) {
 
-likeBtn.addEventListener('click', () => {
-  liked = !liked;
+  let liked = false;
 
-  likeIcon.classList.add('pop');
-  setTimeout(() => likeIcon.classList.remove('pop'), 120);
+  likeBtn.addEventListener('click', () => {
+    liked = !liked;
 
-  likeIcon.className = liked
-    ? 'ph-fill ph-heart liked'
-    : 'ph-fill ph-heart';
-});
+    likeIcon.classList.add('pop');
+    setTimeout(() => likeIcon.classList.remove('pop'), 120);
+
+    likeIcon.className = liked
+      ? 'ph-fill ph-heart liked'
+      : 'ph-fill ph-heart';
+  });
+
+}
 
 (function(){
   const logo = document.querySelector('img.logo');
