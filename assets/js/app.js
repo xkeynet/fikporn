@@ -954,7 +954,7 @@ function queueSeek(clientX) {
   }
 
   try {
-    if (localStorage.getItem(KEY) === "1") { hideGate(); startUiArrowLoop(); }
+    if (localStorage.getItem(KEY) === "1") { hideGate(); }
     else showGate();
   } catch(e) { showGate(); }
 
