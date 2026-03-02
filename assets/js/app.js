@@ -874,3 +874,28 @@ if (uiToggle) {
   uiToggle.addEventListener("click", kickUiArrowSpin);
 }
 
+/* === KILL: disable iOS “Save Image” on gate/logo (paste at VERY END of app.js) === */
+(() => {
+  const targets = [
+    document.querySelector('#gateOverlay .age-badge'),
+    document.querySelector('.top img.logo.no-save'),
+  ].filter(Boolean);
+
+  targets.forEach((img) => {
+    // HTML-level kill
+    img.setAttribute('draggable', 'false');
+
+    // CSS-level kill (applied inline as a fallback)
+    img.style.webkitTouchCallout = 'none';
+    img.style.webkitUserSelect = 'none';
+    img.style.userSelect = 'none';
+    img.style.webkitTapHighlightColor = 'transparent';
+
+    // JS-level kill
+    const stop = (e) => { e.preventDefault(); e.stopPropagation(); return false; };
+    img.addEventListener('contextmenu', stop, { passive: false });
+    img.addEventListener('dragstart', stop, { passive: false });
+    img.addEventListener('touchstart', () => {}, { passive: true }); // keeps iOS from “helpfully” selecting
+  });
+})();
+
