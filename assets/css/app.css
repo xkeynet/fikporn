@@ -109,7 +109,7 @@ body{
   align-items:center;
   justify-content:center;
 
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.95);
   cursor:pointer;
 
   -webkit-tap-highlight-color:transparent;
@@ -543,6 +543,6 @@ aside .stack i{
   line-height: 1;
 }
 aside .stack i { 
-  color: rgba(255,255,255,0.8); 
+  color: rgba(255,255,255,0.95); 
 }
 
