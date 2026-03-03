@@ -495,7 +495,7 @@ body{
 .consent{
   width:100%;
   max-width:44ch;
-  margin-top:18px;
+  margin-top:20px;
   font-size:13px;
   line-height:1.45;
   color:var(--gateMuted);
