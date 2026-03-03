@@ -453,36 +453,42 @@ body{
   min-width:240px;
   margin:0 auto;
   display:inline-flex;
-  flex-direction:column;            /* two-line pill */
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:2px;
 
-  border:2px solid #A5A5A5;
-  border-radius: 0;
-  padding:8px 22px;               /* slightly tighter so it stays "short" */
+  border:0;
+  border-radius:999px;
+  padding:8px 22px;
   font-weight:800;
   letter-spacing:0;
-  color:var(--gateWhite);
-  background:transparent;
+  color:#FFFFFF;
+  background:#0A66FF;
+  box-shadow:0 10px 26px rgba(10,102,255,0.35);
   cursor:pointer;
   -webkit-tap-highlight-color:transparent;
 }
-.enterBtn:active{ transform:scale(0.99); }
+
+.enterBtn:active{
+  transform:scale(0.98);
+  filter:brightness(0.92);
+}
 
 .enterTop{
   font-size:13px;
   line-height:1;
   text-transform:none;
   letter-spacing:0;
-  opacity:0.98;
+  opacity:1;
 }
+
 .enterBottom{
-  font-size:13px;                  /* a touch smaller than before */
+  font-size:13px;
   line-height:1;
   text-transform:none;
   letter-spacing:0.02em;
-  opacity:0.98;
+  opacity:1;
 }
 
 /* === CONSENT TEXT UNDER THE PILL === */
