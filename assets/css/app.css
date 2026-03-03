@@ -460,7 +460,7 @@ body{
 
   border:0;
   border-radius:999px;
-  padding:14px 34px;
+  padding:10px 34px;
   font-weight:800;
   letter-spacing:0;
   color:#FFFFFF;
@@ -476,7 +476,7 @@ body{
 }
 
 .enterTop{
-  font-size:17px;
+  font-size:15px;
   line-height:1;
   text-transform:none;
   letter-spacing:0;
