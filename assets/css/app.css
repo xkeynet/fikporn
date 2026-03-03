@@ -449,8 +449,8 @@ body{
 /* === THE BLUE PILL === */
 .enterBtn{
   width: fit-content;
-  max-width:280px;
-  min-width:240px;
+  max-width:320px;
+  min-width:280px;
   margin:0 auto;
   display:inline-flex;
   flex-direction:column;
@@ -460,7 +460,7 @@ body{
 
   border:0;
   border-radius:999px;
-  padding:8px 22px;
+  padding:14px 34px;
   font-weight:800;
   letter-spacing:0;
   color:#FFFFFF;
@@ -476,7 +476,7 @@ body{
 }
 
 .enterTop{
-  font-size:13px;
+  font-size:15px;
   line-height:1;
   text-transform:none;
   letter-spacing:0;
@@ -484,7 +484,7 @@ body{
 }
 
 .enterBottom{
-  font-size:13px;
+  font-size:15px;
   line-height:1;
   text-transform:none;
   letter-spacing:0.02em;
