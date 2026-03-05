@@ -546,6 +546,13 @@ aside .stack i {
   color: rgba(255,255,255,0.95); 
 }
 
+.icon-talk{
+width:34px;
+height:34px;
+display:block;
+filter:brightness(0) invert(1);
+}
+
 .icon-bookmark{
 width:34px;
 height:34px;
