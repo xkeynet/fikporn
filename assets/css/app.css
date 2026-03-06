@@ -75,7 +75,7 @@ body{
 .top{
   position:fixed;
   top:2px;
-  left:2px;
+  left:4px;
   right:auto;
   display:flex;
   align-items:center;
