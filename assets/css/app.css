@@ -537,9 +537,25 @@ display:block;
 filter:brightness(0) invert(1);
 }
 
-/* === BOTTOM NAV: LIVE ICON === */
-.icon-live{
-width:34px;
-height:34px;
-display:block;
+/* === LIVE === */
+.live-cam{
+position:relative;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+}
+
+.live-cam i{
+font-size:28px;
+}
+
+.live-dot{
+position:absolute;
+top:-2px;
+right:-2px;
+width:8px;
+height:8px;
+background:#ff2b2b;
+border:2px solid #1a1a1a;
+border-radius:50%;
 }
