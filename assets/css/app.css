@@ -209,7 +209,7 @@ body{
   position: absolute;
   left: 0;
   right: 0;
-  top: -57px; /* 40px avatar + 10px gap */
+  top: -60px; /* 40px avatar + 10px gap */
   pointer-events: auto;
 }
 .avatar{
