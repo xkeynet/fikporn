@@ -74,7 +74,7 @@ body{
 /* === TOP LEFT LOGO === */
 .top{
   position:fixed;
-  top:2px;
+  top:6px;
   left:4px;
   right:auto;
   display:flex;
