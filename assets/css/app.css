@@ -538,26 +538,3 @@ filter:brightness(0) invert(1);
 }
 
 /* === LIVE === */
-.live-cam{
-position:relative;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-}
-
-.live-cam i{
-font-size:28px;
-}
-
-.live-label{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-font-size:7px;
-font-weight:700;
-letter-spacing:0.5px;
-color:#ff2b2b;
-font-family:Arial, Helvetica, sans-serif;
-pointer-events:none;
-}
