@@ -530,3 +530,38 @@ filter:brightness(0) invert(1);
 .stack.avatar-stack{
   top: -65px;
 }
+
+.gate-brand{
+  font-size:32px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.01em;
+  margin-bottom:20px;
+  user-select:none;
+}
+
+.gate-brand-fik,
+.gate-brand-porn{
+  display:inline-block;
+  will-change:transform;
+}
+
+.gate-brand-fik{
+  animation:brandPulseFik 3.2s ease-in-out infinite;
+}
+
+.gate-brand-porn{
+  animation:brandPulsePorn 3.2s ease-in-out infinite;
+}
+
+@keyframes brandPulseFik{
+  0%,12%,100%{ transform:scale(1); }
+  4%{ transform:scale(1.06); }
+  8%{ transform:scale(0.99); }
+}
+
+@keyframes brandPulsePorn{
+  0%,52%,100%{ transform:scale(1); }
+  44%{ transform:scale(1.06); }
+  48%{ transform:scale(0.99); }
+}
