@@ -538,3 +538,21 @@ filter:brightness(0) invert(1);
 }
 
 /* === LIVE === */
+.live-top {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+
+.live-top img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
