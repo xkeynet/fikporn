@@ -545,90 +545,60 @@ filter:brightness(0) invert(1);
 .gate-brand-dot,
 .gate-brand-porn{
   display:inline-block;
-  will-change:transform;
   transform-origin:center;
+  will-change:transform;
 }
 
 .gate-brand-fik{
-  animation:brandPulseFik 12s linear infinite;
+  animation:fikPulse 9s linear infinite;
 }
 
 .gate-brand-dot{
-  animation:brandPulseDot 12s linear infinite;
+  animation:dotPulse 9s linear infinite;
 }
 
 .gate-brand-porn{
-  animation:brandPulsePorn 12s linear infinite;
+  animation:pornPulse 9s linear infinite;
 }
 
-@keyframes brandPulseFik{
-  0%,24.9%,100%{
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
-  25.4%{
-    transform:translateY(-8px) scale(1.48) rotate(-2deg);
-  }
-  26.0%{
-    transform:translateY(3px) scale(0.88) rotate(2deg);
-  }
-  26.5%{
-    transform:translateY(-4px) scale(1.16) rotate(-1deg);
-  }
-  26.9%{
-    transform:translateY(1px) scale(0.96) rotate(1deg);
-  }
-  27.3%{
-    transform:translateY(-1px) scale(1.05) rotate(0deg);
-  }
-  27.8%{
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
+/* FIK */
+@keyframes fikPulse{
+
+  0%,32%{ transform:translateY(0) scale(1); }
+
+  33%{ transform:translateY(-14px) scale(1.70); }
+  34%{ transform:translateY(6px) scale(.80); }
+  35%{ transform:translateY(-6px) scale(1.20); }
+  36%{ transform:translateY(3px) scale(.92); }
+  37%{ transform:translateY(-2px) scale(1.05); }
+  38%{ transform:translateY(0) scale(1); }
+
 }
 
-@keyframes brandPulsePorn{
-  0%,49.9%,100%{
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
-  50.4%{
-    transform:translateY(-8px) scale(1.48) rotate(2deg);
-  }
-  51.0%{
-    transform:translateY(3px) scale(0.88) rotate(-2deg);
-  }
-  51.5%{
-    transform:translateY(-4px) scale(1.16) rotate(1deg);
-  }
-  51.9%{
-    transform:translateY(1px) scale(0.96) rotate(-1deg);
-  }
-  52.3%{
-    transform:translateY(-1px) scale(1.05) rotate(0deg);
-  }
-  52.8%{
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
+/* DOT */
+@keyframes dotPulse{
+
+  0%,65%{ transform:translateY(0) scale(1); }
+
+  66%{ transform:translateY(-16px) scale(1.9); }
+  67%{ transform:translateY(8px) scale(.70); }
+  68%{ transform:translateY(-7px) scale(1.25); }
+  69%{ transform:translateY(3px) scale(.90); }
+  70%{ transform:translateY(-2px) scale(1.05); }
+  71%{ transform:translateY(0) scale(1); }
+
 }
 
-@keyframes brandPulseDot{
-  0%,74.9%,100%{
-    transform:translateY(0) scale(1);
-  }
-  75.3%{
-    transform:translateY(-10px) scale(1.55);
-  }
-  75.8%{
-    transform:translateY(4px) scale(0.82);
-  }
-  76.2%{
-    transform:translateY(-5px) scale(1.18);
-  }
-  76.6%{
-    transform:translateY(2px) scale(0.94);
-  }
-  77.0%{
-    transform:translateY(-2px) scale(1.06);
-  }
-  77.5%{
-    transform:translateY(0) scale(1);
-  }
+/* PORN */
+@keyframes pornPulse{
+
+  0%,86%{ transform:translateY(0) scale(1); }
+
+  87%{ transform:translateY(-14px) scale(1.70); }
+  88%{ transform:translateY(6px) scale(.80); }
+  89%{ transform:translateY(-6px) scale(1.20); }
+  90%{ transform:translateY(3px) scale(.92); }
+  91%{ transform:translateY(-2px) scale(1.05); }
+  92%{ transform:translateY(0) scale(1); }
+
 }
