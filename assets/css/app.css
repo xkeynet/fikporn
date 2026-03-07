@@ -542,58 +542,49 @@ filter:brightness(0) invert(1);
 }
 
 .gate-brand-fik,
+.gate-brand-dot,
 .gate-brand-porn{
   display:inline-block;
   will-change:transform;
   transform-origin:center;
 }
 
+.gate-brand-dot{
+  transform:none !important;
+}
+
 .gate-brand-fik{
-  animation:brandPulseFik 4.2s ease-in-out infinite;
+  animation:brandPulseFik 5.6s linear infinite;
 }
 
 .gate-brand-porn{
-  animation:brandPulsePorn 4.2s ease-in-out infinite;
+  animation:brandPulsePorn 5.6s linear infinite;
+}
+
+.gate-brand{
+  animation:brandPulseAll 5.6s linear infinite;
 }
 
 @keyframes brandPulseFik{
-  0%,100%{
-    transform:translateX(0) scale(1);
-  }
-  8%{
-    transform:translateX(-3px) scale(1.18);
-  }
-  10%{
-    transform:translateX(-4px) scale(1.18) rotate(-1deg);
-  }
-  12%{
-    transform:translateX(-2px) scale(1.12) rotate(1deg);
-  }
-  14%{
-    transform:translateX(-3px) scale(1.15) rotate(-1deg);
-  }
-  17%{
-    transform:translateX(0) scale(1);
-  }
+  0%,100%{ transform:translateX(0) scale(1) rotate(0deg); }
+  4%{ transform:translateX(-5px) scale(1.24) rotate(-2deg); }
+  6%{ transform:translateX(-3px) scale(0.94) rotate(2deg); }
+  8%{ transform:translateX(0) scale(1) rotate(0deg); }
+  9%,100%{ transform:translateX(0) scale(1) rotate(0deg); }
 }
 
 @keyframes brandPulsePorn{
-  0%,100%{
-    transform:translateX(0) scale(1);
-  }
-  38%{
-    transform:translateX(3px) scale(1.18);
-  }
-  40%{
-    transform:translateX(4px) scale(1.18) rotate(1deg);
-  }
-  42%{
-    transform:translateX(2px) scale(1.12) rotate(-1deg);
-  }
-  44%{
-    transform:translateX(3px) scale(1.15) rotate(1deg);
-  }
-  47%{
-    transform:translateX(0) scale(1);
-  }
+  0%,100%{ transform:translateX(0) scale(1) rotate(0deg); }
+  28%{ transform:translateX(5px) scale(1.24) rotate(2deg); }
+  30%{ transform:translateX(3px) scale(0.94) rotate(-2deg); }
+  32%{ transform:translateX(0) scale(1) rotate(0deg); }
+  33%,100%{ transform:translateX(0) scale(1) rotate(0deg); }
+}
+
+@keyframes brandPulseAll{
+  0%,100%{ transform:scale(1); }
+  58%{ transform:scale(1); }
+  62%{ transform:scale(1.16); }
+  64%{ transform:scale(0.96); }
+  67%{ transform:scale(1); }
 }
