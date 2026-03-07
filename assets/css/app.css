@@ -549,21 +549,51 @@ filter:brightness(0) invert(1);
 }
 
 .gate-brand-fik{
-  animation:brandPulseFik 3.6s cubic-bezier(.2,.8,.2,1) infinite;
+  animation:brandPulseFik 4.2s ease-in-out infinite;
 }
 
 .gate-brand-porn{
-  animation:brandPulsePorn 3.6s cubic-bezier(.2,.8,.2,1) infinite;
+  animation:brandPulsePorn 4.2s ease-in-out infinite;
 }
 
 @keyframes brandPulseFik{
-  0%,14%,100%{ transform:translateX(0) scale(1); }
-  5%{ transform:translateX(-2px) scale(1.14); }
-  9%{ transform:translateX(0) scale(0.95); }
+  0%,100%{
+    transform:translateX(0) scale(1);
+  }
+  8%{
+    transform:translateX(-3px) scale(1.18);
+  }
+  10%{
+    transform:translateX(-4px) scale(1.18) rotate(-1deg);
+  }
+  12%{
+    transform:translateX(-2px) scale(1.12) rotate(1deg);
+  }
+  14%{
+    transform:translateX(-3px) scale(1.15) rotate(-1deg);
+  }
+  17%{
+    transform:translateX(0) scale(1);
+  }
 }
 
 @keyframes brandPulsePorn{
-  0%,56%,100%{ transform:translateX(0) scale(1); }
-  47%{ transform:translateX(2px) scale(1.14); }
-  51%{ transform:translateX(0) scale(0.95); }
+  0%,100%{
+    transform:translateX(0) scale(1);
+  }
+  38%{
+    transform:translateX(3px) scale(1.18);
+  }
+  40%{
+    transform:translateX(4px) scale(1.18) rotate(1deg);
+  }
+  42%{
+    transform:translateX(2px) scale(1.12) rotate(-1deg);
+  }
+  44%{
+    transform:translateX(3px) scale(1.15) rotate(1deg);
+  }
+  47%{
+    transform:translateX(0) scale(1);
+  }
 }
