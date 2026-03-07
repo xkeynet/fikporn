@@ -74,7 +74,7 @@ body{
 /* === TOP LEFT LIVE === */
 .top{
   position:fixed;
-  top:3px;
+  top:2px;
   left:4px;
   right:auto;
   width:44px;
@@ -522,4 +522,9 @@ width:34px;
 height:34px;
 display:block;
 filter:brightness(0) invert(1);
+}
+
+/* Avatar micro-adjust */
+.stack.avatar-stack{
+  top: -59px;
 }
