@@ -392,12 +392,14 @@ body{
   align-items:center;
 }
 
-/* === AGE ICON (PNG) === */
-.age-badge{
-  width:90px;
-  height:auto;
-  display:block;
+/* === GATE BRAND TEXT === */
+.gate-brand{
+  font-size:32px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:0.08em;
   margin-bottom:20px;
+  user-select:none;
 }
 
 .legalScroll{
