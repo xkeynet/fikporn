@@ -540,8 +540,8 @@ filter:brightness(0) invert(1);
 /* === LIVE === */
 .live-top {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 6px;
   width: 44px;
   height: 44px;
   display: flex;
