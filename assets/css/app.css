@@ -602,3 +602,10 @@ filter:brightness(0) invert(1);
   92%{ transform:translateY(0) scale(1); }
 
 }
+
+.icon-add{
+  width:44px;
+  height:auto;
+  display:block;
+}
+
