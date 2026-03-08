@@ -635,14 +635,14 @@ filter:brightness(0) invert(1);
 /* levá barevná */
 .pill-left{
   background:#2af0ea;
-  transform:translate(calc(-50% - 6px),-50%);
+  transform:translate(calc(-50% - 4px),-50%);
   z-index:1;
 }
 
 /* pravá barevná */
 .pill-right{
   background:#fe2858;
-  transform:translate(calc(-50% + 6px),-50%);
+  transform:translate(calc(-50% + 4px),-50%);
   z-index:1;
 }
 
