@@ -607,5 +607,6 @@ filter:brightness(0) invert(1);
   width:44px;
   height:auto;
   display:block;
+  transform: translateY(-1px); 
 }
 
