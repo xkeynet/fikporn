@@ -524,6 +524,7 @@ width:34px;
 height:34px;
 display:block;
 filter:brightness(0) invert(1);
+transform: translateY(4px);   
 }
 
 /* Avatar micro-adjust */
