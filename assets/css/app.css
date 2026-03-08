@@ -604,50 +604,49 @@ filter:brightness(0) invert(1);
 }
 
 .add-btn{
-  padding:0;
-}
-
-.add-pill{
   position:relative;
-  width:58px;
-  height:38px;
-  border-radius:999px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transform:translateY(-1px);
-  z-index:2;
+  width:52px;
+  height:36px;
+  padding:0;
+  border:0;
+  background:transparent;
 }
 
-/* barevné kapsle ZA pilulkou */
-.add-pill::before,
-.add-pill::after{
-  content:"";
+.add-layer{
   position:absolute;
   top:0;
-  width:32px;
-  height:38px;
+  width:26px;
+  height:36px;
   border-radius:999px;
-  z-index:-1;
 }
 
-.add-pill::before{
-  left:-14px;
+.add-left{
+  left:0;
   background:#2af0ea;
 }
 
-.add-pill::after{
-  right:-14px;
+.add-right{
+  right:0;
   background:#fe2858;
 }
 
+.add-core{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:36px;
+  height:28px;
+  background:#fff;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .add-plus{
-  font-size:30px;
+  font-size:24px;
   font-weight:700;
   color:#000;
   line-height:1;
-  user-select:none;
 }
-
-
