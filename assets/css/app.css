@@ -606,27 +606,32 @@ filter:brightness(0) invert(1);
 .add-btn{
   position:relative;
   width:52px;
-  height:36px;
+  height:32px;
   padding:0;
   border:0;
   background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.add-layer{
+.add-left,
+.add-right{
   position:absolute;
-  top:0;
-  width:26px;
-  height:36px;
-  border-radius:999px;
+  top:4px;
+  width:16px;
+  height:24px;
+  border-radius:8px;
+  z-index:1;
 }
 
 .add-left{
-  left:0;
+  left:2px;
   background:#2af0ea;
 }
 
 .add-right{
-  right:0;
+  right:2px;
   background:#fe2858;
 }
 
@@ -634,19 +639,23 @@ filter:brightness(0) invert(1);
   position:absolute;
   left:50%;
   top:50%;
-  transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%) translateY(-1px);
   width:36px;
-  height:28px;
+  height:24px;
   background:#fff;
-  border-radius:999px;
+  border-radius:8px;
   display:flex;
   align-items:center;
   justify-content:center;
+  z-index:2;
 }
 
 .add-plus{
+  color:#000;
   font-size:24px;
   font-weight:700;
-  color:#000;
   line-height:1;
+  display:block;
+  transform:translateY(-1px);
+  user-select:none;
 }
