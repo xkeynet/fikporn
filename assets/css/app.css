@@ -603,10 +603,52 @@ filter:brightness(0) invert(1);
 
 }
 
-.icon-add{
-  width:44px;
-  height:auto;
-  display:block;
-  transform: translateY(-1px); 
+.add-btn{
+  padding:0;
 }
 
+.add-pill{
+  position:relative;
+  width:58px;
+  height:38px;
+  display:block;
+  border-radius:999px;
+  background:#fff;
+  overflow:visible;
+  transform:translateY(-1px);
+}
+
+.add-pill::before,
+.add-pill::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:22px;
+  height:38px;
+  border-radius:999px;
+  z-index:-1;
+}
+
+.add-pill::before{
+  left:-6px;
+  background:#2af0ea;
+}
+
+.add-pill::after{
+  right:-6px;
+  background:#fe2858;
+}
+
+.add-plus{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#000;
+  font-size:34px;
+  font-weight:700;
+  line-height:1;
+  transform:translateY(-1px);
+  user-select:none;
+}
