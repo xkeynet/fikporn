@@ -158,7 +158,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10;
+  gap: 0;
 }
 
 /* ✅ AVATAR (40x40) — overlay above column (does NOT push the column down) */
@@ -654,9 +654,4 @@ filter:brightness(0) invert(1);
   font-weight:700;
   color:#000;
   line-height:1;
-}
-
-/* ROZESTUPY IKON V PRAVÉM SLOUPCI */
-.side .stack + .stack{
-  margin-top:40px;
 }
