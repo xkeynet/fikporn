@@ -531,6 +531,7 @@ filter:brightness(0) invert(1);
   top: -65px;
 }
 
+/* Fik.Porn LOGO EFEKT */
 .gate-brand{
   font-size:32px;
   font-weight:700;
@@ -603,6 +604,7 @@ filter:brightness(0) invert(1);
 
 }
 
+/* [+] JAKO TikTok */
 .add-btn{
   position:relative;
   width:52px;
@@ -652,4 +654,9 @@ filter:brightness(0) invert(1);
   font-weight:700;
   color:#000;
   line-height:1;
+}
+
+/* ROZESTUPY IKON V PRAVÉM SLOUPCI */
+.side .stack + .stack{
+  margin-top:40px;
 }
