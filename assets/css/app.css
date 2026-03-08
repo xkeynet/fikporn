@@ -651,10 +651,29 @@ transform: translateY(4px);
 
 /* plus */
 .add-plus{
-  font-size:24px;
-  font-weight:700;
-  color:#000;
-  line-height:1;
+  position:relative;
+  width:18px;
+  height:18px;
   display:block;
-  transform:translateY(-1.4px); 
+}
+
+.add-plus::before,
+.add-plus::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  background:#000;
+  border-radius:2px;
+  transform:translate(-50%,-50%);
+}
+
+.add-plus::before{
+  width:18px;
+  height:5px;
+}
+
+.add-plus::after{
+  width:5px;
+  height:18px;
 }
