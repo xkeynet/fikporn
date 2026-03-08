@@ -147,7 +147,7 @@ body{
 .side{
   position: fixed;
   right: 6px;
-  top: 60%;
+  top: 59%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
