@@ -217,7 +217,7 @@ body{
   position: fixed;
   left: 0;
   right: 0;
-  bottom: -6px;
+  bottom: -8px;
   z-index: 2;
   background: transparent;
   padding: 0 var(--navPadX) env(safe-area-inset-bottom);
