@@ -309,7 +309,7 @@ body{
 .seek-time{
   position:absolute;
   left:50%;
-  transform:translateX(-50%);
+  transform:translateX(-50%) scaleX(0.92) scaleY(1.08);
   bottom:44px;
 
   font-family:"Sora", sans-serif;
