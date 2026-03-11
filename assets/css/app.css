@@ -310,18 +310,18 @@ body{
   position:absolute;
   left:50%;
   transform:translateX(-50%);
-  bottom: 44px;
+  bottom:44px;
 
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  font-family:"Space Grotesk", system-ui, sans-serif;
   font-size:20px;
-  font-weight:700;
-  letter-spacing:.06em;
-  font-variant-numeric: tabular-nums;
-  color: rgba(255,255,255,.96);
-  text-shadow: 0 2px 14px rgba(0,0,0,.55);
+  font-weight:600;
+  letter-spacing:0.02em;
+  font-variant-numeric:tabular-nums;
+  color:rgba(255,255,255,.96);
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
 
   opacity:0;
-  transition: opacity 140ms ease;
+  transition:opacity 140ms ease;
   pointer-events:none;
   user-select:none;
   white-space:nowrap;
@@ -329,9 +329,23 @@ body{
 
 .seek-time.is-active{ opacity:1; }
 
-.seek-time .t-cur{ color: rgba(255,255,255,.96); font-weight:700; }
-.seek-time .t-sep{ color: rgba(255,255,255,.60); font-weight:400; font-size:0.82em; letter-spacing:.02em; }
-.seek-time .t-tot{ color: rgba(255,255,255,.60); font-weight:700; }
+.seek-time .t-cur{
+  color:rgba(255,255,255,.96);
+  font-weight:600;
+}
+
+.seek-time .t-sep{
+  color:rgba(255,255,255,.60);
+  font-weight:500;
+  font-size:0.78em;
+  letter-spacing:0;
+  padding:0 4px;
+}
+
+.seek-time .t-tot{
+  color:rgba(255,255,255,.60);
+  font-weight:600;
+}
 
 /* =========================================================
    CSS: (Other) Profile Modal
