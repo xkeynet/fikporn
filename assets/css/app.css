@@ -339,10 +339,10 @@ body{
   font-weight:600;
   font-size:0.60em;
   letter-spacing:0;
-  padding:0 15px;
+  padding:0 18px;
   position:relative;
   top:-4px;
-  transform:rotate(-4deg);
+  transform:rotate(-5deg);
 }
 
 .seek-time .t-tot{
