@@ -336,12 +336,13 @@ body{
 
 .seek-time .t-sep{
   color:rgba(255,255,255,.60);
-  font-weight:500;
+  font-weight:600;
   font-size:0.60em;
   letter-spacing:0;
   padding:0 15px;
   position:relative;
   top:-4px;
+  transform:rotate(-4deg);
 }
 
 .seek-time .t-tot{
