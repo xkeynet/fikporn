@@ -692,7 +692,6 @@ function queueSeek(clientX) {
       layerCurrent.removeEventListener('transitionend', onDone);
 
       preparedDir = 0;
-      if (side) side.style.opacity = '1';
       resetTransformsNoAnim();
 
       isAnimating = false;
@@ -859,11 +858,6 @@ function queueSeek(clientX) {
 
     e.preventDefault();
     dy = ddy;
-
-    if (side) {
-      const fade = Math.max(0.25, 1 - Math.min(Math.abs(dy) / 300, 0.75));
-      side.style.opacity = fade;
-    }
 
     const now = performance.now();
     lastMoveT = now;
