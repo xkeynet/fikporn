@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const seekPill = document.getElementById('seekPill');
   const seekFill = document.getElementById('seekFill');
   const seekTime = document.getElementById('seekTime');
+  const side = document.querySelector('.side');
 
   // === HARDEN VIDEO ELEMENTS FOR iOS / SMOOTHNESS ===
   [videoCurrent, videoNext].forEach(v => {
@@ -211,6 +212,7 @@ function updateSeekUIFromCurrent() {
 function setSeekActive(on) {
   if (seekPill) seekPill.classList.toggle('is-active', !!on);
   if (seekTime) seekTime.classList.toggle('is-active', !!on);
+  if (side) side.classList.toggle('scrubbing', !!on);
   if (on) updateSeekUIFromCurrent();
 }
 
