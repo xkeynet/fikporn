@@ -143,6 +143,13 @@ body{
 /* =========================================================
    CSS: Right Column
    ========================================================= */
+/* === SCRUBBING MODE (hide right column during seek) === */
+.side.scrubbing{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 120ms ease;
+}
+
 /* === RIGHT SIDE ACTIONS === */
 .side{
   position: fixed;
